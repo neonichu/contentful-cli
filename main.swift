@@ -6,7 +6,7 @@ import AppKit
 NSApplicationLoad()
 #endif
 
-let client = ContentfulClient(spaceIdentifier: "cfexampleapi", accessToken:"b4c0n73n7fu1")
+let client = Client(spaceIdentifier: "cfexampleapi", accessToken:"b4c0n73n7fu1")
 client.fetchEntry("nyancat").1.next { (entry) in
   print(entry)
   exit(0)
