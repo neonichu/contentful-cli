@@ -1,8 +1,8 @@
 .PHONY: all clean
 
 all:
-	swift-build
+	swift build
 	./.build/debug/contentful-cli
 
 clean:
-	swift-build --clean
+	swift build --clean
