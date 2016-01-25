@@ -4,9 +4,16 @@ import Contentful
 import AppKit
 
 NSApplicationLoad()
+#else
+import Glibc
 #endif
 
-let client = Client(spaceIdentifier: "cfexampleapi", accessToken:"b4c0n73n7fu1")
+var config = Configuration()
+#if os(Linux)
+// Requests doesn't support HTTPS
+config.secure = false
+#endif
+let client = Client(spaceIdentifier: "cfexampleapi", accessToken:"b4c0n73n7fu1", configuration: config)
 client.fetchEntry("nyancat").1.next { (entry) in
   print(entry)
   exit(0)
